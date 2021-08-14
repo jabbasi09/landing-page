@@ -58,6 +58,10 @@ main {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
 }
+.nav-links:active {
+    font-weight: 900;
+    border-bottom: 5px solid #D83A56;
+}
 .main-nav li {
     text-align: center;
     margin: 15px auto;

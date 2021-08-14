@@ -14,6 +14,7 @@ navBarToggle.addEventListener('click', function() {
 cardSections.forEach(section => {
     const li = document.createElement('li');
     const anchor = document.createElement('a');
+    li.classList.add('navbar__item');
     anchor.innerHTML = section.getAttribute('data-nav');
     anchor.classList.add('nav-links');
     // anchor.classList.add('active');
@@ -54,3 +55,21 @@ function activeSection(){
   }
 }
 document.addEventListener('scroll', activeSection);
+
+// function for smooth scroll
+const makeNavLinksSmooth = () => {
+  const navLinks = document.querySelectorAll('.nav-links');
+
+  for(let n in navLinks) {
+    if(navLinks.hasOwnProperty(n)){
+      navLinks[n].addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(navLinks[n].hash).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    }
+  }
+}
+// function call for makeNavLinksSmooth
+makeNavLinksSmooth();
