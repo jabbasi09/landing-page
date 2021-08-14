@@ -41,7 +41,22 @@ function scrollFunction() {
     }
 }
 
-// active nav when in section 
+// active section when in section 
+function activeSection(){
+  for(let section of cardSections){ 
+    const item = section.getBoundingClientRect();
+    const activeElement = document.getElementById(section.id);
+    if (item.y <= 90 && item.bottom >= 150){
+      section.classList.add("active");
+    }
+    else {
+      section.classList.remove("active");
+    }
+  }
+}
+document.addEventListener('scroll', activeSection);
+
+// active nav when in section
 function activeSection(){
   for(let section of cardSections){ 
     const item = section.getBoundingClientRect();
